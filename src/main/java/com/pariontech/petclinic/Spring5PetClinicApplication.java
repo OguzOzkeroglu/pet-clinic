@@ -3,6 +3,12 @@ package com.pariontech.petclinic;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * @author oguz
+ * @since 2018.9.28
+ *
+ */
+
 @SpringBootApplication
 public class Spring5PetClinicApplication {
 
