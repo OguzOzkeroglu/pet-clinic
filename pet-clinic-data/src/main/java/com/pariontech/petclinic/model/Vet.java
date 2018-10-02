@@ -8,4 +8,6 @@ package com.pariontech.petclinic.model;
 
 public class Vet extends Person {
 
+	private static final long serialVersionUID = 2441228888599339876L;
+
 }

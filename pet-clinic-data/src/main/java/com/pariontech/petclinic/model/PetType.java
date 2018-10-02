@@ -6,7 +6,9 @@ package com.pariontech.petclinic.model;
  *
  */
 
-public class PetType {
+public class PetType extends BaseEntity {
+	private static final long serialVersionUID = -5008551945214146858L;
+	
 	private String name;
 
 	public String getName() {
