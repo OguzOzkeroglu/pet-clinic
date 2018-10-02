@@ -7,7 +7,7 @@ import com.pariontech.petclinic.model.Owner;
 /**
  * @author oguz
  *
- *         Created on 2018.10.02
+ * Created on 2018.10.02
  */
 
 public interface OwnerService {
