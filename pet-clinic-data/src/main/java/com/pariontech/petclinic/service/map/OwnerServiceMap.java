@@ -10,13 +10,13 @@ import com.pariontech.petclinic.service.CrudService;
  *
  */
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbsMapService<Owner, Long> implements CrudService<Owner, Long> {
 
 	@Override
 	public Owner save(Owner object) {
 		return super.save(object.getId(), object);
 	}
-	
+
 	@Override
 	public Set<Owner> findAll() {
 		return super.findAll();

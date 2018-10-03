@@ -10,7 +10,7 @@ import com.pariontech.petclinic.service.CrudService;
  *
  */
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbsMapService<Pet, Long> implements CrudService<Pet, Long> {
 
 	@Override
 	public Pet save(Pet object) {
