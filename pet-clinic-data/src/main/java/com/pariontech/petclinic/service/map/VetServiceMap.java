@@ -14,12 +14,6 @@ import com.pariontech.petclinic.service.VetService;
 
 @Service
 public class VetServiceMap extends AbsMapService<Vet, Long> implements VetService {
-
-	@Override
-	public Vet save(Vet object) {
-		return super.save(object.getId(), object);
-	}
-
 	@Override
 	public Set<Vet> findAll() {
 		return super.findAll();
@@ -31,8 +25,8 @@ public class VetServiceMap extends AbsMapService<Vet, Long> implements VetServic
 	}
 
 	@Override
-	public Vet save(Long id, Vet object) {
-		return super.save(id, object);
+	public Vet save(Vet object) {
+		return super.save(object);
 	}
 
 	@Override

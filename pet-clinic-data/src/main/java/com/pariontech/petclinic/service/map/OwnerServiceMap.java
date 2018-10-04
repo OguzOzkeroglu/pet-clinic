@@ -16,11 +16,6 @@ import com.pariontech.petclinic.service.OwnerService;
 public class OwnerServiceMap extends AbsMapService<Owner, Long> implements OwnerService {
 
 	@Override
-	public Owner save(Owner object) {
-		return super.save(object.getId(), object);
-	}
-
-	@Override
 	public Set<Owner> findAll() {
 		return super.findAll();
 	}
@@ -31,8 +26,8 @@ public class OwnerServiceMap extends AbsMapService<Owner, Long> implements Owner
 	}
 
 	@Override
-	public Owner save(Long id, Owner object) {
-		return super.save(id, object);
+	public Owner save(Owner object) {
+		return super.save(object);
 	}
 
 	@Override
