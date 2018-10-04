@@ -2,6 +2,8 @@ package com.pariontech.petclinic.service.map;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.pariontech.petclinic.model.Owner;
 import com.pariontech.petclinic.service.OwnerService;
 
@@ -10,6 +12,7 @@ import com.pariontech.petclinic.service.OwnerService;
  *
  */
 
+@Service
 public class OwnerServiceMap extends AbsMapService<Owner, Long> implements OwnerService {
 
 	@Override

@@ -2,6 +2,8 @@ package com.pariontech.petclinic.service.map;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.pariontech.petclinic.model.Vet;
 import com.pariontech.petclinic.service.VetService;
 
@@ -10,6 +12,7 @@ import com.pariontech.petclinic.service.VetService;
  *
  */
 
+@Service
 public class VetServiceMap extends AbsMapService<Vet, Long> implements VetService {
 
 	@Override
