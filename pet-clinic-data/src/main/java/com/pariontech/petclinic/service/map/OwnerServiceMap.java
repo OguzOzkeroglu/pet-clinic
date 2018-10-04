@@ -3,14 +3,14 @@ package com.pariontech.petclinic.service.map;
 import java.util.Set;
 
 import com.pariontech.petclinic.model.Owner;
-import com.pariontech.petclinic.service.CrudService;
+import com.pariontech.petclinic.service.OwnerService;
 
 /**
  * @author oguz, created on 2018.10.03
  *
  */
 
-public class OwnerServiceMap extends AbsMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbsMapService<Owner, Long> implements OwnerService {
 
 	@Override
 	public Owner save(Owner object) {
@@ -40,5 +40,10 @@ public class OwnerServiceMap extends AbsMapService<Owner, Long> implements CrudS
 	@Override
 	public void delete(Owner object) {
 		super.delete(object);
+	}
+
+	@Override
+	public Owner findByLastName(String lastName) {
+		return null;
 	}
 }

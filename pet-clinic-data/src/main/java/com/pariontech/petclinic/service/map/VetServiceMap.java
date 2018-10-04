@@ -3,14 +3,14 @@ package com.pariontech.petclinic.service.map;
 import java.util.Set;
 
 import com.pariontech.petclinic.model.Vet;
-import com.pariontech.petclinic.service.CrudService;
+import com.pariontech.petclinic.service.VetService;
 
 /**
  * @author oguz, created on 2018.10.03
  *
  */
 
-public class VetServiceMap extends AbsMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbsMapService<Vet, Long> implements VetService {
 
 	@Override
 	public Vet save(Vet object) {
