@@ -3,7 +3,7 @@ package com.pariontech.petclinic.model;
 import java.util.Set;
 
 /**
- * @author oguz Created on 2018.10.1
+ * @author oguz, created on 2018.10.1
  *
  */
 
