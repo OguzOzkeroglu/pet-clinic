@@ -5,7 +5,7 @@ package com.pariontech.petclinic.model;
  *
  */
 
-public class Speciality extends BaseEntity {
+public class Specialty extends BaseEntity {
 	private static final long serialVersionUID = 8963758352356822528L;
 
 	private String description;
