@@ -30,17 +30,17 @@ public class DataLoader implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+
 		PetType dog = new PetType();
 		dog.setName("Dog");
-		PetType savedDogPetType = petTypeService.save(dog);
-		
+		petTypeService.save(dog);
+
 		PetType cat = new PetType();
 		cat.setName("Cat");
-		PetType savedCatPetType = petTypeService.save(cat);
-		
+		petTypeService.save(cat);
+
 		System.out.println("Pet Types...");
-		
+
 		Owner owner1 = new Owner();
 		owner1.setFirstName("Oguz");
 		owner1.setLastName("Ozkeroglu");
