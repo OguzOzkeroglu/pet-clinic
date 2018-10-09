@@ -1,9 +1,12 @@
 package com.pariontech.petclinic.bootstrap;
 
+import java.time.LocalDate;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import com.pariontech.petclinic.model.Owner;
+import com.pariontech.petclinic.model.Pet;
 import com.pariontech.petclinic.model.PetType;
 import com.pariontech.petclinic.model.Vet;
 import com.pariontech.petclinic.service.OwnerService;
@@ -33,27 +36,45 @@ public class DataLoader implements CommandLineRunner {
 
 		PetType dog = new PetType();
 		dog.setName("Dog");
-		petTypeService.save(dog);
+		PetType savedDogPetType = petTypeService.save(dog);
 
 		PetType cat = new PetType();
 		cat.setName("Cat");
-		petTypeService.save(cat);
-
-		System.out.println("Pet Types...");
+		PetType savedCatPetType = petTypeService.save(cat);
 
 		Owner owner1 = new Owner();
 		owner1.setFirstName("Oguz");
 		owner1.setLastName("Ozkeroglu");
+		owner1.setAddress("123, Çanakkale");
+		owner1.setCity("Çanakkale");
+		owner1.setTelephone("123123123");
+
+		Pet ouzsPet = new Pet();
+		ouzsPet.setPetType(savedDogPetType);
+		ouzsPet.setOwner(owner1);
+		ouzsPet.setBirthDate(LocalDate.now());
+		ouzsPet.setName("Abbas");
+
+		owner1.getPets().add(ouzsPet);
 
 		ownerService.save(owner1);
 
 		Owner owner2 = new Owner();
 		owner2.setFirstName("Mark");
 		owner2.setLastName("Knopfler");
+		owner2.setAddress("234, Glasgow");
+		owner1.setCity("Glasgow");
+		owner1.setTelephone("2344565463");
+
+		Pet marksPet = new Pet();
+		marksPet.setPetType(savedCatPetType);
+		marksPet.setOwner(owner2);
+		marksPet.setBirthDate(LocalDate.now());
+		marksPet.setName("Şakir");
+
+		owner2.getPets().add(marksPet);
 
 		ownerService.save(owner2);
-
-		System.out.println("Loaded owners...");
 
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Ozzy");
@@ -67,6 +88,8 @@ public class DataLoader implements CommandLineRunner {
 
 		vetService.save(vet2);
 
+		System.out.println("Pet Types...");
+		System.out.println("Loaded owners...");
 		System.out.println("Loaded vets...");
 
 		System.out.println(petTypeService.findAll());
