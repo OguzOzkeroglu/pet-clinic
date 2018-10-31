@@ -3,17 +3,32 @@ package com.pariontech.petclinic.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 /**
  * @author oguz, created on 2018.10.1
  *
  */
 
+@Entity
+@Table(name = "owner")
 public class Owner extends Person {
 	private static final long serialVersionUID = -3159864440217645540L;
 
+	@Column(name = "address")
 	private String address;
+
+	@Column(name = "city")
 	private String city;
+
+	@Column(name = "telephone")
 	private String telephone;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	private Set<Pet> pets = new HashSet<>();
 
 	public String getAddress() {

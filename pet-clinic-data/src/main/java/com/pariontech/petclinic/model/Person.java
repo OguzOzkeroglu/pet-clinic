@@ -1,15 +1,21 @@
 package com.pariontech.petclinic.model;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
 /**
- * @author oguz
- * Created on 2018.10.1
+ * @author oguz, created on 2018.10.1
  *
  */
 
+@MappedSuperclass
 public class Person extends BaseEntity {
 	private static final long serialVersionUID = 4229493296526926956L;
-	
+
+	@Column(name = "first_name")
 	private String firstName;
+
+	@Column(name = "last_name")
 	private String lastName;
 
 	public String getFirstName() {
