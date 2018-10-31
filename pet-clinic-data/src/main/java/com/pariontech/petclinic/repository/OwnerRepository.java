@@ -1,0 +1,14 @@
+package com.pariontech.petclinic.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.pariontech.petclinic.model.Owner;
+
+/**
+ * @author oguz, created on 2018.10.31
+ *
+ */
+
+public interface OwnerRepository extends CrudRepository<Owner, Long> {
+
+}
