@@ -2,16 +2,30 @@ package com.pariontech.petclinic.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  * @author oguz, created on 2018.10.09
  *
  */
 
+@Entity
+@Table(name = "visit")
 public class Visit extends BaseEntity {
 	private static final long serialVersionUID = -4508021040799822609L;
 
+	@Column(name = "date")
 	private LocalDate date;
+	
+	@Column(name = "description")
 	private String description;
+	
+	@ManyToOne
+	@JoinColumn(name = "pet_id")
 	private Pet pet;
 
 	public LocalDate getDate() {
