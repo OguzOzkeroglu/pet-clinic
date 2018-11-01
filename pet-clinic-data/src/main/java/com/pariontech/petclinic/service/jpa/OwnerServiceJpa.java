@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.pariontech.petclinic.model.Owner;
 import com.pariontech.petclinic.repository.OwnerRepository;
-import com.pariontech.petclinic.repository.PetRepository;
-import com.pariontech.petclinic.repository.PetTypeRepository;
 import com.pariontech.petclinic.service.OwnerService;
 
 /**
@@ -20,15 +18,18 @@ import com.pariontech.petclinic.service.OwnerService;
 @Service
 @Profile("jpa_profile")
 public class OwnerServiceJpa implements OwnerService {
-
 	private final OwnerRepository ownerRepository;
-	private final PetRepository petRepository;
-	private final PetTypeRepository petTypeRepository;
+	// private final PetRepository petRepository;
+	// private final PetTypeRepository petTypeRepository;
 
-	public OwnerServiceJpa(OwnerRepository ownerRepository, PetRepository petRepository, PetTypeRepository petTypeRepository) {
+	// public OwnerServiceJpa(OwnerRepository ownerRepository, PetRepository petRepository, PetTypeRepository petTypeRepository) {
+	// this.ownerRepository = ownerRepository;
+	// this.petRepository = petRepository;
+	// this.petTypeRepository = petTypeRepository;
+	// }
+
+	public OwnerServiceJpa(OwnerRepository ownerRepository) {
 		this.ownerRepository = ownerRepository;
-		this.petRepository = petRepository;
-		this.petTypeRepository = petTypeRepository;
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class OwnerServiceJpa implements OwnerService {
 
 	@Override
 	public Owner findById(Long id) {
-		//if presents return owner, else return null
+		// if presents return owner, else return null
 		return ownerRepository.findById(id).orElse(null);
 	}
 
