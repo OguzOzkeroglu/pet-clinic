@@ -10,10 +10,12 @@ import com.pariontech.petclinic.model.Pet;
 import com.pariontech.petclinic.model.PetType;
 import com.pariontech.petclinic.model.Specialty;
 import com.pariontech.petclinic.model.Vet;
+import com.pariontech.petclinic.model.Visit;
 import com.pariontech.petclinic.service.OwnerService;
 import com.pariontech.petclinic.service.PetTypeService;
 import com.pariontech.petclinic.service.SpecialtyService;
 import com.pariontech.petclinic.service.VetService;
+import com.pariontech.petclinic.service.VisitService;
 
 /**
  * @author oguz, created on 2018.10.04
@@ -27,12 +29,15 @@ public class DataLoader implements CommandLineRunner {
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialtyService specialtyService;
+	private final VisitService visitService;
 
-	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService,
+			VisitService visitService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialtyService = specialtyService;
+		this.visitService = visitService;
 	}
 
 	@Override
@@ -86,7 +91,16 @@ public class DataLoader implements CommandLineRunner {
 		owner2.getPets().add(marksPet);
 
 		ownerService.save(owner2);
+		
+		// Visits
+		Visit pet1Visit = new Visit();
+		pet1Visit.setPet(ouzsPet);
+		pet1Visit.setDate(LocalDate.now());
+		pet1Visit.setDescription("Sick pet :(");
+		
+		visitService.save(pet1Visit);
 
+		// Specialties
 		Specialty radiology = new Specialty();
 		radiology.setDescription("Radiology");
 		Specialty savedRadiology = specialtyService.save(radiology);
@@ -99,6 +113,7 @@ public class DataLoader implements CommandLineRunner {
 		dentistry.setDescription("Dentistry");
 		Specialty savedDentistry = specialtyService.save(dentistry);
 
+		// Vets
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Ozzy");
 		vet1.setLastName("Osbourne");
@@ -117,9 +132,11 @@ public class DataLoader implements CommandLineRunner {
 		System.out.println("Pet Types...");
 		System.out.println("Loaded owners...");
 		System.out.println("Loaded vets...");
+		System.out.println("Loaded visits...");
 
 		System.out.println(petTypeService.findAll());
 		System.out.println(ownerService.findAll());
 		System.out.println(vetService.findAll());
+		System.out.println(visitService.findAll());
 	}
 }
