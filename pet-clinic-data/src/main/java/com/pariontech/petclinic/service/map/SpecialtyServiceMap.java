@@ -2,6 +2,7 @@ package com.pariontech.petclinic.service.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.pariontech.petclinic.model.Specialty;
@@ -12,6 +13,7 @@ import com.pariontech.petclinic.service.SpecialtyService;
  *
  */
 @Service
+@Profile({"default", "map"})
 public class SpecialtyServiceMap extends AbsMapService<Specialty, Long> implements SpecialtyService {
 
 	@Override

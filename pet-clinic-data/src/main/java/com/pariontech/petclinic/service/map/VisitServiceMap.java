@@ -2,6 +2,7 @@ package com.pariontech.petclinic.service.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.pariontech.petclinic.model.Visit;
@@ -12,6 +13,7 @@ import com.pariontech.petclinic.service.VisitService;
  *
  */
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbsMapService<Visit, Long> implements VisitService {
 
 	@Override
