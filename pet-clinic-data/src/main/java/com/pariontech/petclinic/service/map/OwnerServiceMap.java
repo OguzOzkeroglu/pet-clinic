@@ -17,7 +17,7 @@ import com.pariontech.petclinic.service.PetTypeService;
  */
 
 @Service
-@Profile({"default", "map"})
+@Profile({ "default", "map" })
 public class OwnerServiceMap extends AbsMapService<Owner, Long> implements OwnerService {
 	private final PetTypeService petTypeService;
 	private final PetService petService;
@@ -74,6 +74,10 @@ public class OwnerServiceMap extends AbsMapService<Owner, Long> implements Owner
 
 	@Override
 	public Owner findByLastName(String lastName) {
-		return null;
+		return this.findAll()
+				.stream()
+				.filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+				.findFirst()
+				.orElse(null);
 	}
 }
