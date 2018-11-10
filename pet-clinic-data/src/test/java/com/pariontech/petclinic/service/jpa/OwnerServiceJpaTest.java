@@ -2,6 +2,7 @@ package com.pariontech.petclinic.service.jpa;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
@@ -74,6 +75,15 @@ class OwnerServiceJpaTest {
 
 		assertNotNull(owner);
 		assertEquals(ownerId, owner.getId());
+	}
+
+	@Test
+	void findByIdNotFound() {
+		when(ownerRepository.findById(anyLong())).thenReturn(Optional.empty());
+
+		Owner owner = ownerService.findById(1L);
+
+		assertNull(owner);
 	}
 
 	@Test
